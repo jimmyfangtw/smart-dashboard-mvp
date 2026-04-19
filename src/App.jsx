@@ -478,7 +478,7 @@ function linePath(rows, key, width, height, min, max) {
 export default function App() {
   const [data, setData] = useState(loadData);
   const [now, setNow] = useState(formatNow());
-  const [mode, setMode] = useState("dashboard");
+  const [mode] = useState("dashboard");
   const [adminTab, setAdminTab] = useState("basic");
   const [menuIndex, setMenuIndex] = useState(0);
     const [saveText, setSaveText] = useState("後台已載入");
@@ -711,9 +711,9 @@ export default function App() {
             <h1 style={styles.title}>臺北市立陽明教養院智慧看板</h1>
             <div style={styles.headerSub}>前台已確認，後台為可操作版</div>
           </div>
-          <div style={styles.headerRight}>            <div style={styles.toolbar}>
-              <button style={{ ...styles.button, ...(mode === "dashboard" ? styles.buttonActive : {}) }} onClick={() => setMode("dashboard")}>前台看板</button>
-              <button style={{ ...styles.button, ...(mode === "admin" ? styles.buttonActive : {}) }} onClick={() => setMode("admin")}>管理後台</button>
+          <div style={styles.headerRight}>
+            <div style={styles.toolbar}>
+              <div style={{ ...styles.button, ...styles.buttonActive, cursor: "default" }}>前台看板</div>
             </div>
           </div>
         </div>
